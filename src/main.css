@@ -1,96 +1,176 @@
 :root {
-  --header-bg-color: #bdd5ec;
-  --footer-bg-color: #3e6385;
-  --dark-font: #000000;
-  --light-font: #ffffff;
+	--header-bg-color: #bdd5ec;
+	--footer-bg-color: #3e6385;
+	--dark-font: #000000;
+	--light-font: #ffffff;
+	--task-border: #BDD5EC;
+	--desc-grey: #7a7a7a;
 
-  --sm-padding: 0.5rem; 
-  --md-padding: 2rem;
+	--sm-padding: 0.5rem;
+	--md-padding: 2rem;
+	--lg-padding: 15%;
 
-  --larger-font: 1.9rem;
-  --larger-title: 2.3rem;
+  --task-padding: 1rem;
+
+	--task-title: 1.25rem;
+	--larger-font: 1.7rem;
+	--larger-title: 2.3rem;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1fr auto;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: 1fr auto;
 
-  height: 100vh;
+	height: 100vh;
+  width: 100%;
 
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+	font-family: "Inter", Helvetica, sans-serif;
+	font-size: 16px;
 }
 
 header {
-  display: grid;
-  grid-template-rows: 6rem auto 1fr;
+	display: grid;
+	grid-template-rows: 6rem auto 1fr;
 
-  padding: var(--md-padding);
+	padding-left: var(--lg-padding);
+	padding-right: var(--md-padding);
+	padding-top: var(--md-padding);
 
-  background-color: var(--header-bg-color);
+	background-color: var(--header-bg-color);
 }
 
 footer {
-  grid-column: 1/3;
-  display: flex;
-  justify-content: space-evenly;
+	grid-column: 1/3;
+	display: flex;
+	justify-content: space-evenly;
 
-  padding: var(--sm-padding);
-  background-color: var(--footer-bg-color);
+	padding: var(--sm-padding);
+	background-color: var(--footer-bg-color);
 
-  font-size: 1.1rem;
-  color: var(--light-font);
+	font-size: 1.1rem;
+	color: var(--light-font);
+}
+
+main {
+	margin: 3% 10%;
 }
 
 /* Links */
 
-a{
-  text-decoration: none;
-  color: var(--dark-font);
+a {
+	text-decoration: none;
+	color: var(--dark-font);
 }
 
-ul{
-  list-style: none;
+ul {
+	list-style: none;
 }
 
-.task-box{
-  display: flex;
+.task-box {
+	display: flex;
 }
 
-button{
-  justify-self: end;
+.add-task {
+	justify-self: end;
 
-  width: 70px;
-  height: 70px;
-  padding: 0;
-  background-color: transparent;
-  background-image: url(icons/plus-box-outline.svg);
-  background-repeat: no-repeat;
-  cursor: pointer;
-  border: none;
+	width: 70px;
+	height: 70px;
+	padding: 0;
+	background-image: url(icons/plus-box-outline.svg);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	border: none;
 }
 
 header p,
-nav{
-  font-size: var(--larger-font);
+nav {
+	font-size: var(--larger-font);
 }
 
-nav{
-  padding-bottom: var(--md-padding);
+nav {
+	padding-bottom: var(--lg-padding);
 }
 
 nav li,
-header p{
-  margin-bottom: var(--sm-padding);
+header p {
+	margin-bottom: var(--sm-padding);
 }
 
-.all-projects h1{
-  font-size: var(--larger-title);
+.all-projects h1,
+.title-top-page {
+	font-size: var(--larger-title);
+}
+
+/* Tasks */
+.sample-task {
+	display: grid;
+	grid-template-columns: auto 1fr auto auto;
+  row-gap: var(--sm-padding);
+  column-gap: var(--md-padding);
+
+  max-width: 1000px;
+  min-width: 350px;
+	margin: 1rem 0;
+	border: 2px solid var(--task-border);
+  border-left: 5px solid #ff01019c;
+	padding: var(--task-padding);
+}
+
+.task-completion {
+	grid-column: 1/2;
+
+	background-image: url(/src/icons/circle-outline.svg);
+	width: 2rem;
+  height: 2rem;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	border: none;
+}
+
+.task-title {
+	grid-column: 2/3;
+	grid-row: 1/2;
+
+	font-size: var(--task-title);
+}
+
+.task-desc {
+	grid-column: 2/3;
+	grid-row: 2/3;
+
+	color: var(--desc-grey);
+}
+
+.task-date {
+	grid-column: 3/4;
+	grid-row: 1/2;
+
+  font-weight: bold;
+}
+
+.task-remove {
+	grid-column: 4/5;
+	grid-row: 1/2;
+
+	background-image: url(/src/icons/window-close.svg);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	border: none;
+}
+
+.task-project {
+	grid-column: 3/5;
+	grid-row: 2/3;
+
+  color: var(--desc-grey);
 }
