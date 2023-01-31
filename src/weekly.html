@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>To-do</title>
-</head>
-<body>
-    <h2>week</h2>
-</body>
+  </head>
+  <body>
+    <header>
+        <button type="submit" class="add-task""></button>
+      <nav class="stroke">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="today.html">Today</a></li>
+          <li><a href="weekly.html" class="current">This week</a></li>
+        </ul>
+      </nav>
+      <div class="all-projects">
+        <h1>Projects</h1>
+        <div class="sample-project">
+          <p>Sample project</p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h1 class="title-top-page">To-do <em>This week</em></h1>
+      <div class="sample-task">
+        <button type="submit" class="task-completion"></button>
+        <h3 class="task-title">Sample task</h3>
+        <p class="task-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eius dolore iusto ducimus quo, iste excepturi culpa consequuntur minima reprehenderit architecto adipisci magni pariatur blanditiis! Quo deserunt ipsam veniam necessitatibus!</p>
+        <p class="task-date">30th January</p>
+        <button type="submit" class="task-remove"></button>
+        <p class="task-project">Sample project</p>
+      </div>
+    </main>
+    <footer>
+      <p>Designed and coded by Greta Rakauskaite © 2023</p>
+      <p>github.com/GretaRa</p>
+    </footer>
+  </body>
 </html>

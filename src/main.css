@@ -103,10 +103,49 @@ nav li,
 header p {
 	margin-bottom: var(--sm-padding);
 }
+/*  */
+
+/* nav animation on hover */
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before,
+.all-projects p {
+  transition: all .5s;
+}
+
+nav.stroke ul li a{
+  position: relative;
+}
+
+nav.stroke ul li a:after{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: var(--dark-font);
+  height: 0.1rem;
+}
+nav.stroke ul li a:hover:after{
+  width: 100%;
+}
+
+.current{
+	font-weight: bold;
+}
+/*  */
 
 .all-projects h1,
 .title-top-page {
 	font-size: var(--larger-title);
+}
+
+.title-top-page em{
+	text-decoration: underline;
+	font-style: normal;
 }
 
 /* Tasks */
@@ -162,6 +201,8 @@ header p {
 	grid-row: 1/2;
 
 	background-image: url(/src/icons/window-close.svg);
+  width: 2rem;
+  height: 2rem;
 	background-color: transparent;
 	background-repeat: no-repeat;
 	cursor: pointer;
@@ -174,3 +215,4 @@ header p {
 
   color: var(--desc-grey);
 }
+/*  */
