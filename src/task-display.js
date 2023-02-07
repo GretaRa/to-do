@@ -7,7 +7,9 @@
 //add possibility to edit the task
 //add project tag (later)
 
-function createTask(title,description,date){
+let tasks = [];
+
+function createTask(title,description,date,color){
   const taskCompletion = document.createElement('button');
   taskCompletion.classList.add('task-completion');
 
@@ -23,21 +25,34 @@ function createTask(title,description,date){
   taskDueDate.classList.add('task-date');
   taskDueDate.textContent = date;
 
-  const container = document.querySelector('.container');
-  const task = document.createElement('div');
-  task.classList.add('task');
+  const taskRemove = document.createElement('button');
+  taskRemove.classList.add('task-remove');
 
-  container.appendChild(task);
-  task.appendChild(taskCompletion);
-  task.appendChild(taskTitle);
-  task.appendChild(taskDescription);
-  task.appendChild(taskDueDate);
+  const container = document.querySelector('.container');
+  const taskDiv = document.createElement('div');
+  taskDiv.classList.add('task');
+  taskDiv.style.borderLeftColor = color;
+
+  container.appendChild(taskDiv);
+  taskDiv.appendChild(taskCompletion);
+  taskDiv.appendChild(taskTitle);
+  taskDiv.appendChild(taskDescription);
+  taskDiv.appendChild(taskDueDate);
+  taskDiv.appendChild(taskRemove);
 
   return{
-    task
+    taskDiv,
+    title,
+    description,
+    date,
+    color
   }
 }
 
-createTask('Title','Description','7th of February');
+function addTask (task){
+  tasks.push(task);
+}
+
+addTask(createTask('Title','Description','7th of February', '#2d97249c'))
 
 export {createTask};
