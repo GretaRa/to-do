@@ -150,7 +150,8 @@ nav.stroke ul li a:hover:after{
 }
 
 /* Tasks */
-.sample-task {
+.sample-task,
+.task {
 	display: grid;
 	grid-template-columns: auto 1fr auto auto;
   row-gap: var(--sm-padding);
