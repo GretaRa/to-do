@@ -7,6 +7,8 @@
 //add possibility to edit the task
 //add project tag (later)
 
+import { format, formatDistanceToNow} from 'date-fns';
+
 let tasks = [];
 
 function createTask(title,description,date,color){
@@ -53,6 +55,8 @@ function addTask (task){
   tasks.push(task);
 }
 
-addTask(createTask('Title','Description','7th of February', '#2d97249c'))
+addTask(createTask('Title','Description',formatDistanceToNow(
+  new Date(2023, 3, 2)
+), '#2d97249c'))
 
-export {createTask};
+export {createTask, addTask};
