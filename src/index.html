@@ -13,12 +13,27 @@
       <!-- Modal -->
     <div id="myModal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h1>Create new...</h1>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-nav">
+          <span class="create-task">Task</span>
+          <span class="create-project">Project</span>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="title" id="title" placeholder="Title">
+          <textarea name="" id="" cols="30" rows="10" placeholder="Description"></textarea>
+          <h3>Due date:</h3>
+          <h3>Priority:</h3>
+          <h3>Project:</h3>
+          <button>Create</button>
+        </div>
         <p>Some text in the Modal..</p>
       </div>
     </div>
     <header>
-        <button type="submit" class="add-task" id="myBtn" ></button>
+        <button type="submit" class="add-task" id="add-task-btn" ></button>
       <nav class="stroke">
         <ul>
           <li><a href="index.html" class="current">Home</a></li>
