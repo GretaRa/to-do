@@ -18,18 +18,17 @@
           <span class="close-modal">&times;</span>
         </div>
         <div class="modal-nav">
-          <span class="create-task">Task</span>
-          <span class="create-project">Project</span>
+          <span class="create-task current"><p>Task</p></span>
+          <span class="create-project"><p>Project</p></span>
         </div>
         <div class="modal-body">
-          <input type="text" name="title" id="title" placeholder="Title">
-          <textarea name="" id="" cols="30" rows="10" placeholder="Description"></textarea>
+          <input type="text" name="title" id="create-title" placeholder="Title">
+          <textarea name="" id="create-desc" cols="30" rows="10" placeholder="Description"></textarea>
           <h3>Due date:</h3>
           <h3>Priority:</h3>
           <h3>Project:</h3>
-          <button>Create</button>
+          <button class="create-button">Create</button>
         </div>
-        <p>Some text in the Modal..</p>
       </div>
     </div>
     <header>
@@ -43,8 +42,8 @@
       </nav>
       <div class="all-projects">
         <h1>Projects</h1>
-        <div class="sample-project">
-          <p>Sample project</p>
+        <div class="project-list">
+          <span><p>Sample project</p></span>
         </div>
       </div>
     </header>

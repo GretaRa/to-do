@@ -9,32 +9,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>To-do</title>
   </head>
-  <body>
+    <body>
+      <!-- Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Create new...</h1>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-nav">
+          <span class="create-task"><p>Task</p></span>
+          <span class="create-project"><p>Project</p></span>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="title" id="create-title" placeholder="Title">
+          <textarea name="" id="create-desc" cols="30" rows="10" placeholder="Description"></textarea>
+          <h3>Due date:</h3>
+          <h3>Priority:</h3>
+          <h3>Project:</h3>
+          <button class="create-button">Create</button>
+        </div>
+      </div>
+    </div>
     <header>
-        <button type="submit" class="add-task""></button>
+        <button type="submit" class="add-task" id="add-task-btn" ></button>
       <nav class="stroke">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" >Home</a></li>
           <li><a href="today.html" class="current">Today</a></li>
           <li><a href="weekly.html">This week</a></li>
         </ul>
       </nav>
       <div class="all-projects">
         <h1>Projects</h1>
-        <div class="sample-project">
+        <div class="project-list">
           <p>Sample project</p>
         </div>
       </div>
     </header>
     <main>
       <h1 class="title-top-page">To-do <em>Today</em></h1>
-      <div class="sample-task">
-        <button type="submit" class="task-completion"></button>
-        <h3 class="task-title">Sample task</h3>
-        <p class="task-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eius dolore iusto ducimus quo, iste excepturi culpa consequuntur minima reprehenderit architecto adipisci magni pariatur blanditiis! Quo deserunt ipsam veniam necessitatibus!</p>
-        <p class="task-date">30th January</p>
-        <button type="submit" class="task-remove"></button>
-        <p class="task-project">Sample project</p>
+      <div class="container">
+        <div class="sample-task">
+          <button type="submit" class="task-completion"></button>
+          <h3 class="task-title">Sample task</h3>
+          <p class="task-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eius dolore iusto ducimus quo, iste excepturi culpa consequuntur minima reprehenderit architecto adipisci magni pariatur blanditiis! Quo deserunt ipsam veniam necessitatibus!</p>
+          <p class="task-date">30th January</p>
+          <button type="button" class="task-remove"></button>
+          <p class="task-project">Sample project</p>
+        </div>
       </div>
     </main>
     <footer>
