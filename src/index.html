@@ -26,10 +26,24 @@
           <textarea name="" id="create-desc" cols="30" rows="10" placeholder="Description"></textarea>
           <div class="create-date">
             <h3>Due date:</h3>
-            <input type="date" />
+            <input type="date">
           </div>
-          <h3>Priority:</h3>
-          <h3>Project:</h3>
+          <div class="choose-priority">
+            <h3>Priority:</h3>
+            <div class="priority-choices">
+              <input type="radio" id="lowPrio" name="radioPriority" value="low" >
+              <label for="lowPrio">Low</label>
+          
+              <input type="radio" id="mediumPrio" name="radioPriority" value="medium">
+              <label for="mediumPrio">Medium</label>
+          
+              <input type="radio" id="highPrio" name="radioPriority" value="high">
+              <label for="highPrio">High</label> 
+            </div>
+          </div>
+          <div class="choose-project">
+            <h3>Project:</h3>
+          </div>
           <button class="create-button">Create</button>
         </div>
       </div>
