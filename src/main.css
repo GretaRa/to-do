@@ -320,3 +320,8 @@ nav.stroke ul li a:hover::after {
   transform: scaleX(1);
 	transform-origin: bottom left;
 }
+
+.create-date{
+	display: flex;
+	gap: 1rem;
+}
