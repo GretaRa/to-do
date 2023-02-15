@@ -1,4 +1,4 @@
-// create functions for displaying the task in DOM
+
 // create factory function for creating many task objects
 //add remove button func
 //add date 

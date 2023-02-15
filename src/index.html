@@ -18,33 +18,52 @@
           <span class="close-modal">&times;</span>
         </div>
         <div class="modal-nav">
-          <span class="create-task current"><p>Task</p></span>
-          <span class="create-project"><p>Project</p></span>
+          <span class="create-task current tabLinks" data-target="task-tab"><p>Task</p></span>
+          <span class="create-project tabLinks" data-target="project-tab"><p>Project</p></span>
         </div>
         <div class="modal-body">
-          <input type="text" name="title" id="create-title" placeholder="Title">
-          <textarea name="" id="create-desc" cols="30" rows="10" placeholder="Description"></textarea>
-          <div class="create-date">
-            <h3>Due date:</h3>
-            <input type="date">
-          </div>
-          <div class="choose-priority">
-            <h3>Priority:</h3>
-            <div class="priority-choices">
-              <input type="radio" id="lowPrio" name="radioPriority" value="low" >
-              <label for="lowPrio">Low</label>
-          
-              <input type="radio" id="mediumPrio" name="radioPriority" value="medium">
-              <label for="mediumPrio">Medium</label>
-          
-              <input type="radio" id="highPrio" name="radioPriority" value="high">
-              <label for="highPrio">High</label> 
+          <div class="tabContent" id="task-tab">
+            <div class="tab">
+              <input type="text" name="title" id="create-title" placeholder="Title" maxlength="40">
+              <textarea name="" id="create-desc" cols="30" rows="10" placeholder="Description"></textarea>
+              <div class="create-date">
+                <h3>Due date:</h3>
+                <input type="date">
+              </div>
+              <div class="choose-priority">
+                <h3>Priority:</h3>
+                <div class="priority-choices">
+                  <input type="radio" id="lowPrio" name="radioPriority" value="low" >
+                  <label for="lowPrio">Low</label>
+              
+                  <input type="radio" id="mediumPrio" name="radioPriority" value="medium">
+                  <label for="mediumPrio">Medium</label>
+              
+                  <input type="radio" id="highPrio" name="radioPriority" value="high">
+                  <label for="highPrio">High</label> 
+                </div>
+              </div>
+              <div class="choose-project">
+                <label for="chosen-project"><h3>Project:</h3></label>
+                <div class="select">
+                  <select id="chosen-project">
+                    <option value="none"></option>
+                    <option value="Sample project">Sample project</option>
+                  </select>
+                </div>
+              </div>
+              <button class="create-button">Create</button>
             </div>
           </div>
-          <div class="choose-project">
-            <h3>Project:</h3>
+          <div class="tabContent" id="project-tab">
+            <div class="tab">
+              <input type="text" name="title" id="create-title" placeholder="Title" maxlength="40">
+              <div class="choose-color">
+                <h3>Select label color:</h3>
+              </div>
+              <button class="create-button">Create</button>
+            </div>
           </div>
-          <button class="create-button">Create</button>
         </div>
       </div>
     </div>

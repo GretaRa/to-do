@@ -255,11 +255,19 @@ header p {
 }
 
 .modal-body{
+	padding: 1.2rem;
+}
+
+.tab{
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+}
 
-	padding: 1.2rem;
+#task-tab{
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 #create-title,
@@ -279,7 +287,8 @@ header p {
 }
 
 .create-date,
-.choose-priority{
+.choose-priority,
+.choose-project{
 	display: flex;
 	align-items: center;
 	gap: 1rem;
@@ -334,6 +343,7 @@ header p {
 	background-color: rgba(255, 1, 1, 0.507);
 	border-color: rgba(255, 1, 1, 0.61);
 }
+		/*  */
 /*  */
 
 /* Animated underline effect */
