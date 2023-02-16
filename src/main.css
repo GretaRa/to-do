@@ -115,7 +115,8 @@ header p {
 	margin-bottom: var(--sm-padding);
 }
 
-.current{
+.current,
+.active{
 	font-weight: bold;
 	transform: scale(1.1);
 	transform-origin: left;
@@ -344,6 +345,16 @@ header p {
 	border-color: rgba(255, 1, 1, 0.61);
 }
 		/*  */
+
+#color-wheel {
+	width: 150px;
+	height: 150px;
+	background: radial-gradient(white, transparent 80%),
+							conic-gradient(#e43f00, #fae410, #55cc3b, #09adff, #6b0efd, #e70d86, #e43f00);
+	border-radius: 50%;
+
+	margin-left: 10rem;
+}
 /*  */
 
 /* Animated underline effect */

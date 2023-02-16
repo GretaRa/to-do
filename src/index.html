@@ -18,7 +18,7 @@
           <span class="close-modal">&times;</span>
         </div>
         <div class="modal-nav">
-          <span class="create-task current tabLinks" data-target="task-tab"><p>Task</p></span>
+          <span class="create-task tabLinks" data-target="task-tab"><p>Task</p></span>
           <span class="create-project tabLinks" data-target="project-tab"><p>Project</p></span>
         </div>
         <div class="modal-body">
@@ -60,6 +60,8 @@
               <input type="text" name="title" id="create-title" placeholder="Title" maxlength="40">
               <div class="choose-color">
                 <h3>Select label color:</h3>
+                <div id="color-wheel"></div>
+                <span id="color"></span>
               </div>
               <button class="create-button">Create</button>
             </div>
