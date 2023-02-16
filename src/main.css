@@ -6,6 +6,9 @@
 	--light-border: #BDD5EC;
 	--desc-grey: #7a7a7a;
 	--pale-blue: #EDF6FF;
+	--low-prio-color: #29893382;
+	--medium-prio-color: #ffa9019c;
+	--high-prio-color: #ff01019c;
 
 	--sm-padding: 0.5rem;
 	--md-padding: 2rem;
@@ -133,7 +136,6 @@ header p {
 }
 
 /* Tasks */
-.sample-task,
 .task {
 	display: grid;
 	grid-template-columns: auto 1fr auto auto;
@@ -144,7 +146,7 @@ header p {
   min-width: 350px;
 	margin: 1rem 0;
 	border: 2px solid var(--light-border);
-  border-left: 5px solid #ff01019c;
+  border-left: 5px solid var(--low-prio-color);
 	padding: var(--task-padding);
 }
 
@@ -331,18 +333,18 @@ header p {
 }
 
 #lowPrio:checked + label {
-	background-color: #bfb;
-	border-color: #4c4;
+	background-color: #bbffbb;
+	border-color: var(--low-prio-color);
 }
 
 #mediumPrio:checked + label {
 	background-color: #f5d41a8a;
-	border-color: #ffa9019c;
+	border-color: var(--medium-prio-color);
 }
 
 #highPrio:checked + label {
-	background-color: rgba(255, 1, 1, 0.507);
-	border-color: rgba(255, 1, 1, 0.61);
+	background-color: #ff010181;
+	border-color: var(--high-prio-color);
 }
 		/*  */
 

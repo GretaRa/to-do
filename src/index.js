@@ -1,6 +1,6 @@
 import "./main.css";
 import {createTask, addTask} from './task-display';
-import "./add-task-modal.js"
+import "./modal.js"
 
 
 // Get the modal

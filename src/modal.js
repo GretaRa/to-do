@@ -7,6 +7,7 @@ const colors = [
   {r: 0xe7, g: 0x0d, b: 0x86},
   {r: 0xe4, g: 0x3f, b: 0x00}
 ];
+
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('color-wheel').addEventListener('click', function(e) {
       var rect = e.target.getBoundingClientRect();

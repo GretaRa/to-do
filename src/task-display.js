@@ -1,4 +1,3 @@
-
 // create factory function for creating many task objects
 //add remove button func
 //add date 
@@ -11,7 +10,7 @@ import { format, formatDistanceToNow} from 'date-fns';
 
 let tasks = [];
 
-function createTask(title,description,date,color){
+const taskFactory = (title,description,date,color) => {
   const taskCompletion = document.createElement('button');
   taskCompletion.classList.add('task-completion');
 
@@ -55,8 +54,26 @@ function addTask (task){
   tasks.push(task);
 }
 
-addTask(createTask('Title','Description',formatDistanceToNow(
-  new Date(2023, 3, 2)
-), '#2d97249c'))
 
-export {createTask, addTask};
+const sampleTask = taskFactory('Sample task', 'Don\'t forget to describe it!', format(new Date(), 'MM/dd/yyyy'), 'var(--low-prio-color)');
+
+function createTask(){
+  let title = document.getElementById('create-title').value;
+  let description = document.getElementById('create-desc').value;
+  let date = format(new Date(document.getElementById('create-date').value), 'MM/dd/yyyy');
+  
+  addTask(taskFactory(title,description,date,color))
+  console.log(tasks);
+
+  return
+}
+
+const createTaskBtn = document.getElementById('create-task-btn');
+
+createTaskBtn.addEventListener('click', () => {
+  createTask()
+  let modal = document.getElementById("myModal");
+  modal.style.display = "none";
+})
+
+export {taskFactory, addTask};
