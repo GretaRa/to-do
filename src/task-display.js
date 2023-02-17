@@ -1,79 +1,84 @@
-// create factory function for creating many task objects
 //add remove button func
-//add date 
+//add date
 //make border reflect chosen priority
 //add posibility to mark project complete
 //add possibility to edit the task
 //add project tag (later)
 
-import { format, formatDistanceToNow} from 'date-fns';
+import { format, formatDistanceToNow, compareAsc } from "date-fns";
 
 let tasks = [];
 
-const taskFactory = (title,description,date,color) => {
-  const taskCompletion = document.createElement('button');
-  taskCompletion.classList.add('task-completion');
-
-  const taskTitle = document.createElement('h3');
-  taskTitle.classList.add('task-title');
-  taskTitle.textContent = title;
-
-  const taskDescription = document.createElement('p');
-  taskDescription.classList.add('task-desc');
-  taskDescription.textContent = description;
-
-  const taskDueDate = document.createElement('p');
-  taskDueDate.classList.add('task-date');
-  taskDueDate.textContent = date;
-
-  const taskRemove = document.createElement('button');
-  taskRemove.classList.add('task-remove');
-
-  const container = document.querySelector('.container');
-  const taskDiv = document.createElement('div');
-  taskDiv.classList.add('task');
-  taskDiv.style.borderLeftColor = color;
-
-  container.appendChild(taskDiv);
-  taskDiv.appendChild(taskCompletion);
-  taskDiv.appendChild(taskTitle);
-  taskDiv.appendChild(taskDescription);
-  taskDiv.appendChild(taskDueDate);
-  taskDiv.appendChild(taskRemove);
-
-  return{
-    taskDiv,
-    title,
-    description,
-    date,
-    color
-  }
+function addTask(task) {
+	tasks.push(task);
 }
 
-function addTask (task){
-  tasks.push(task);
+const taskFactory = (title, description, date, color) => {
+	const taskCompletion = document.createElement("button");
+	taskCompletion.classList.add("task-completion");
+
+	const taskTitle = document.createElement("h3");
+	taskTitle.classList.add("task-title");
+	taskTitle.textContent = title;
+
+	const taskDescription = document.createElement("p");
+	taskDescription.classList.add("task-desc");
+	taskDescription.textContent = description;
+
+	const taskDueDate = document.createElement("p");
+	taskDueDate.classList.add("task-date");
+	taskDueDate.textContent = date;
+
+	const taskRemove = document.createElement("button");
+	taskRemove.classList.add("task-remove");
+
+	const container = document.querySelector(".container");
+	const taskDiv = document.createElement("div");
+	taskDiv.classList.add("task");
+	taskDiv.style.borderLeftColor = color;
+
+	container.appendChild(taskDiv);
+	taskDiv.appendChild(taskCompletion);
+	taskDiv.appendChild(taskTitle);
+	taskDiv.appendChild(taskDescription);
+	taskDiv.appendChild(taskDueDate);
+	taskDiv.appendChild(taskRemove);
+
+	return {
+		taskDiv,
+		title,
+		description,
+		date,
+		color,
+	};
+};
+
+function createTask() {
+	let title = document.getElementById("create-title").value;
+	let description = document.getElementById("create-desc").value;
+	let date = formatDistanceToNow(
+		new Date(document.getElementById("create-date").value),
+		{ addSuffix: true }
+	);
+
+	addTask(taskFactory(title, description, date, color));
+
+	return;
 }
 
+const createTaskBtn = document.getElementById("create-task-btn");
 
-const sampleTask = taskFactory('Sample task', 'Don\'t forget to describe it!', format(new Date(), 'MM/dd/yyyy'), 'var(--low-prio-color)');
+createTaskBtn.addEventListener("click", () => {
+	createTask();
+	let modal = document.getElementById("myModal");
+	modal.style.display = "none";
+});
 
-function createTask(){
-  let title = document.getElementById('create-title').value;
-  let description = document.getElementById('create-desc').value;
-  let date = format(new Date(document.getElementById('create-date').value), 'MM/dd/yyyy');
-  
-  addTask(taskFactory(title,description,date,color))
-  console.log(tasks);
+const sampleTask = taskFactory(
+	"Sample task",
+	"Don't forget to describe it!",
+	format(new Date(), "MM/dd/yyyy"),
+	"var(--low-prio-color)"
+);
 
-  return
-}
-
-const createTaskBtn = document.getElementById('create-task-btn');
-
-createTaskBtn.addEventListener('click', () => {
-  createTask()
-  let modal = document.getElementById("myModal");
-  modal.style.display = "none";
-})
-
-export {taskFactory, addTask};
+export { taskFactory, addTask };
