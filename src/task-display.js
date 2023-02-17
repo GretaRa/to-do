@@ -5,13 +5,20 @@
 //add possibility to edit the task
 //add project tag (later)
 
-import { format, formatDistanceToNow, compareAsc } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 
 let tasks = [];
 
 function addTask(task) {
 	tasks.push(task);
 }
+
+const element = document.querySelector('form');
+element.addEventListener('submit', event => {
+  event.preventDefault();
+  // actual logic, e.g. validate the form
+  console.log('Form submission cancelled.');
+});
 
 const taskFactory = (title, description, date, color) => {
 	const taskCompletion = document.createElement("button");
@@ -60,11 +67,25 @@ function createTask() {
 		new Date(document.getElementById("create-date").value),
 		{ addSuffix: true }
 	);
+  let color = getColor();
 
 	addTask(taskFactory(title, description, date, color));
 
 	return;
 }
+
+function getColor() {
+  let priority = document.querySelector('input[name="radioPriority"]:checked').value;
+  console.log(priority)
+  if ( priority === 'high') {
+    return 'var(--high-prio-color)'
+  } else if ( priority === 'medium') {
+    return 'var(--medium-prio-color)'
+  } else {
+    return 'var(--low-prio-color)'
+  }
+}
+
 
 const createTaskBtn = document.getElementById("create-task-btn");
 
@@ -77,7 +98,7 @@ createTaskBtn.addEventListener("click", () => {
 const sampleTask = taskFactory(
 	"Sample task",
 	"Don't forget to describe it!",
-	format(new Date(), "MM/dd/yyyy"),
+	"Today",
 	"var(--low-prio-color)"
 );
 
