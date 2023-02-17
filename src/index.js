@@ -1,6 +1,7 @@
 import "./main.css";
-import {createTask, addTask} from './task-display';
+import  './task-display';
 import "./modal.js"
+import { resetCreateTask } from "./task-display";
 
 
 // Get the modal
@@ -20,6 +21,7 @@ openBtn.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 closeBtn.onclick = function() {
   modal.style.display = "none";
+  resetCreateTask()
 }
 
 // When the user clicks anywhere outside of the modal, close it

@@ -70,6 +70,7 @@ function createTask() {
   let color = getColor();
 
 	addTask(taskFactory(title, description, date, color));
+  resetCreateTask()
 
 	return;
 }
@@ -102,4 +103,12 @@ const sampleTask = taskFactory(
 	"var(--low-prio-color)"
 );
 
-export { taskFactory, addTask };
+function resetCreateTask() {
+  document.getElementById("create-title").value = '';
+  document.getElementById("create-desc").value = '';
+  document.getElementById("create-date").value = '';
+  document.querySelector('input[name="radioPriority"]:checked').checked = false;
+  document.getElementById('lowPrio').checked = true;
+}
+
+export { taskFactory, addTask, resetCreateTask};
