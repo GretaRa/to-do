@@ -46,7 +46,7 @@ header {
 	grid-template-rows: 6rem auto 1fr;
 
 	padding-left: var(--lg-padding);
-	padding-right: var(--md-padding);
+	padding-right: 4rem;
 	padding-top: var(--md-padding);
 
 	background-color: var(--header-bg-color);
@@ -111,6 +111,20 @@ nav {
 
 .project-list p:hover{
 	transform: scale(1.1);
+}
+
+.project-color {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.project{
+	display: flex;
+	gap: 1rem;
+	width: max-content;
 }
 
 nav li,
@@ -273,13 +287,13 @@ header p {
 	gap: 0.5rem;
 }
 
-#create-title,
+.create-title,
 #create-desc{
 	border: none;
 	outline: none;
 }
 
-#create-title{
+.create-title{
 	font-size: var(--task-title);
 	font-weight: 600;
 }

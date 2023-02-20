@@ -61,7 +61,7 @@ const taskFactory = (title, description, date, color) => {
 };
 
 function createTask() {
-	let title = document.getElementById("create-title").value;
+	let title = document.getElementById("task-title").value;
 	let description = document.getElementById("create-desc").value;
 	let date = formatDistanceToNow(
 		new Date(document.getElementById("create-date").value),
@@ -87,7 +87,6 @@ function getColor() {
   }
 }
 
-
 const createTaskBtn = document.getElementById("create-task-btn");
 
 createTaskBtn.addEventListener("click", () => {
@@ -96,6 +95,7 @@ createTaskBtn.addEventListener("click", () => {
 	modal.style.display = "none";
 });
 
+// Create sample task to be shown when first visiting the website
 const sampleTask = taskFactory(
 	"Sample task",
 	"Don't forget to describe it!",
@@ -103,8 +103,9 @@ const sampleTask = taskFactory(
 	"var(--low-prio-color)"
 );
 
+//Reset the task creation form
 function resetCreateTask() {
-  document.getElementById("create-title").value = '';
+  document.getElementById("task-title").value = '';
   document.getElementById("create-desc").value = '';
   document.getElementById("create-date").value = '';
   document.querySelector('input[name="radioPriority"]:checked').checked = false;

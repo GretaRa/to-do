@@ -1,7 +1,6 @@
 import "./main.css";
 import  './task-display';
-import "./modal.js"
-import { resetCreateTask } from "./task-display";
+import "./modal-projects.js"
 
 
 // Get the modal
