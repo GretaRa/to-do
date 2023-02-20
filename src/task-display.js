@@ -13,13 +13,6 @@ function addTask(task) {
 	tasks.push(task);
 }
 
-const element = document.querySelector('form');
-element.addEventListener('submit', event => {
-  event.preventDefault();
-  // actual logic, e.g. validate the form
-  console.log('Form submission cancelled.');
-});
-
 const taskFactory = (title, description, date, color) => {
 	const taskCompletion = document.createElement("button");
 	taskCompletion.classList.add("task-completion");
@@ -77,7 +70,6 @@ function createTask() {
 
 function getColor() {
   let priority = document.querySelector('input[name="radioPriority"]:checked').value;
-  console.log(priority)
   if ( priority === 'high') {
     return 'var(--high-prio-color)'
   } else if ( priority === 'medium') {

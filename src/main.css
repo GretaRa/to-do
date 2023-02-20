@@ -113,12 +113,19 @@ nav {
 	transform: scale(1.1);
 }
 
-.project-color {
+.project-color,
+.dot {
   height: 25px;
   width: 25px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+}
+
+.selected-color{
+	display: flex;
+	gap: 1rem;
+	margin-top: 1.5rem;
 }
 
 .project{
@@ -370,6 +377,7 @@ header p {
 	border-radius: 50%;
 
 	margin-left: 10rem;
+	cursor: pointer;
 }
 /*  */
 

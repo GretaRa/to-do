@@ -1,5 +1,5 @@
 //Create project color selector
-let projectColor
+let projectColor;
 
 const colors = [
 	{ r: 0xe4, g: 0x3f, b: 0x00 },
@@ -48,9 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			color.b = Math.round(color.b * cw + 255 * ww);
 			//Compute the hex color code and apply it
 			var xColor = rgbToHex(color.r, color.g, color.b);
-			document.getElementById("color").innerText = 'Chosen color';
 			document.getElementById("color").style.backgroundColor = xColor;
-      projectColor = xColor;
+			projectColor = xColor;
 		});
 });
 
@@ -78,7 +77,7 @@ const projectFactory = (titleProject, colorProject) => {
 
 	const color = document.createElement("span");
 	color.classList.add("project-color");
-  color.style.backgroundColor = colorProject;
+	color.style.backgroundColor = colorProject;
 
 	projectList.appendChild(projectWrapper);
 	projectWrapper.appendChild(color);
@@ -90,13 +89,13 @@ const projectFactory = (titleProject, colorProject) => {
 		color,
 	};
 };
-const proje = projectFactory("newOne",'#fff');
+const proje = projectFactory("newOne", "#fff");
 
-function createProject () {
-  let title = document.getElementById("project-title").value;
-  let color = projectColor;
+function createProject() {
+	let title = document.getElementById("project-title").value;
+	let color = projectColor;
 
-  projectFactory(title,color)
+	projectFactory(title, color);
 }
 
 const createProjectBtn = document.getElementById("create-project-btn");
