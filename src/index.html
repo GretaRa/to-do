@@ -25,11 +25,11 @@
           <div class="tabContent" id="task-tab">
             <form action="">
               <div class="tab">
-                <input type="text" name="title" class="create-title" id="task-title" placeholder="Title" maxlength="40" required>
+                <input type="text" name="title" class="create-title" id="task-title" placeholder="Title" maxlength="40">
                 <textarea name="" id="create-desc" cols="30" rows="10" placeholder="Description"></textarea>
                 <div class="create-date">
                   <h3>Due date:</h3>
-                  <input id="create-date" type="date" required />
+                  <input id="create-date" type="date"/>
                 </div>
                 <div class="choose-priority">
                   <h3>Priority:</h3>
@@ -58,18 +58,20 @@
             </form>
           </div>
           <div class="tabContent" id="project-tab">
-            <div class="tab">
-              <input type="text" name="title" class="create-title" id="project-title" placeholder="Title" maxlength="40">
-              <div class="choose-color">
-                <h3>Select label color:</h3>
-                <div id="color-wheel"></div>
-                <div class="selected-color">
-                  <h3>Selected color:</h3>
-                  <span id="color" class="dot"></span>
+            <form action="">
+              <div class="tab">
+                <input type="text" name="title" class="create-title" id="project-title" placeholder="Title" maxlength="40">
+                <div class="choose-color">
+                  <h3>Select label color:</h3>
+                  <div id="color-wheel"></div>
+                  <div class="selected-color">
+                    <h3>Selected color:</h3>
+                    <span id="color" class="dot"></span>
+                  </div>
                 </div>
+                <button class="create-button" id="create-project-btn" type="submit">Create</button>
               </div>
-              <button class="create-button" id="create-project-btn" type="submit">Create</button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

@@ -86,7 +86,7 @@ const projectFactory = (titleProject, colorProject) => {
 
 	return {
 		title,
-		color,
+		color
 	};
 };
 const proje = projectFactory("newOne", "#fff");

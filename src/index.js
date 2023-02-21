@@ -62,9 +62,11 @@ document.querySelectorAll(".tabLinks").forEach(tab => {
 activateTab(tabLinks[0]);
 
 //prevent form submittion
-const element = document.querySelector('form');
-element.addEventListener('submit', event => {
-  event.preventDefault();
-  // actual logic, e.g. validate the form
-  console.log('Form submission cancelled.');
-});
+
+document.querySelectorAll('form').forEach( element => {
+  element.addEventListener('submit', event => {
+    event.preventDefault();
+    // actual logic, e.g. validate the form
+    console.log('Form submission cancelled.');
+  });
+})
