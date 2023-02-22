@@ -1,6 +1,7 @@
-//Create project color selector
 let projectColor;
+const createProjectBtn = document.getElementById("create-project-btn");
 
+//Create project color selector
 const colors = [
 	{ r: 0xe4, g: 0x3f, b: 0x00 },
 	{ r: 0xfa, g: 0xe4, b: 0x10 },
@@ -62,8 +63,7 @@ function rgbToHex(r, g, b) {
 	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-//Create project
-
+//Create project DOM
 const projectFactory = (titleProject, colorProject) => {
 	const projectList = document.querySelector(".project-list");
 
@@ -86,36 +86,39 @@ const projectFactory = (titleProject, colorProject) => {
 
 	return {
 		title,
-		color
+		color,
 	};
 };
-const proje = projectFactory("Sample project", "coral");
 
+// Takes input from project modal and uses the values to create project DOM
 function createProject() {
 	let title = document.getElementById("project-title").value;
 	let color = projectColor;
 
 	projectFactory(title, color);
-	resetCreateProject()
+	resetCreateProject();
 }
 
-const createProjectBtn = document.getElementById("create-project-btn");
-
+//Makes sure there is input in selected fields and runs createProject()
 createProjectBtn.addEventListener("click", () => {
 	const titleField = document.getElementById("project-title");
-	if (titleField.value.trim() == ""){
-		titleField.classList.add('error')
-		titleField.addEventListener('input', () => {
-			titleField.classList.remove('error')
-		})
-		return
+	if (titleField.value.trim() == "") {
+		titleField.classList.add("error");
+		titleField.addEventListener("input", () => {
+			titleField.classList.remove("error");
+		});
+		return;
 	}
 	createProject();
+	//Hide modal
 	let modal = document.getElementById("myModal");
 	modal.style.display = "none";
 });
 
 //Reset the project creation form
 function resetCreateProject() {
-  document.getElementById("project-title").value = '';
+	document.getElementById("project-title").value = "";
 }
+
+// Create sample project to be shown when first visiting the website
+const proje = projectFactory("Sample project", "coral");
