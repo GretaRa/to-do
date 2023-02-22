@@ -84,7 +84,7 @@ const createTaskBtn = document.getElementById("create-task-btn");
 createTaskBtn.addEventListener("click", () => {
 	const titleField = document.getElementById("task-title");
 	const dateField = document.getElementById("create-date");
-	if (titleField.value == ""){
+	if (titleField.value.trim() == ""){
 		titleField.classList.add('error')
 		titleField.addEventListener('input', () => {
 			titleField.classList.remove('error')

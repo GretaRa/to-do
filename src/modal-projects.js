@@ -96,13 +96,14 @@ function createProject() {
 	let color = projectColor;
 
 	projectFactory(title, color);
+	resetCreateProject()
 }
 
 const createProjectBtn = document.getElementById("create-project-btn");
 
 createProjectBtn.addEventListener("click", () => {
 	const titleField = document.getElementById("project-title");
-	if (titleField.value == ""){
+	if (titleField.value.trim() == ""){
 		titleField.classList.add('error')
 		titleField.addEventListener('input', () => {
 			titleField.classList.remove('error')
@@ -113,3 +114,8 @@ createProjectBtn.addEventListener("click", () => {
 	let modal = document.getElementById("myModal");
 	modal.style.display = "none";
 });
+
+//Reset the project creation form
+function resetCreateProject() {
+  document.getElementById("project-title").value = '';
+}

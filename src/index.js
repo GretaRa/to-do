@@ -21,6 +21,7 @@ openBtn.onclick = function() {
 closeBtn.onclick = function() {
   modal.style.display = "none";
   resetCreateTask()
+  resetCreateProject()
 }
 
 // When the user clicks anywhere outside of the modal, close it

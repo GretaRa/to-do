@@ -132,6 +132,7 @@ nav {
 	display: flex;
 	gap: 1rem;
 	width: max-content;
+	align-items: center;
 }
 
 nav li,
