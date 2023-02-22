@@ -89,7 +89,7 @@ const projectFactory = (titleProject, colorProject) => {
 		color
 	};
 };
-const proje = projectFactory("newOne", "#fff");
+const proje = projectFactory("Sample project", "coral");
 
 function createProject() {
 	let title = document.getElementById("project-title").value;
@@ -101,6 +101,14 @@ function createProject() {
 const createProjectBtn = document.getElementById("create-project-btn");
 
 createProjectBtn.addEventListener("click", () => {
+	const titleField = document.getElementById("project-title");
+	if (titleField.value == ""){
+		titleField.classList.add('error')
+		titleField.addEventListener('input', () => {
+			titleField.classList.remove('error')
+		})
+		return
+	}
 	createProject();
 	let modal = document.getElementById("myModal");
 	modal.style.display = "none";

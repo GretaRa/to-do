@@ -82,7 +82,22 @@ function getColor() {
 const createTaskBtn = document.getElementById("create-task-btn");
 
 createTaskBtn.addEventListener("click", () => {
+	const titleField = document.getElementById("task-title");
+	const dateField = document.getElementById("create-date");
+	if (titleField.value == ""){
+		titleField.classList.add('error')
+		titleField.addEventListener('input', () => {
+			titleField.classList.remove('error')
+		})
+		return
+	} else if (dateField.value == ""){
+		dateField.classList.add('error')
+		dateField.addEventListener('input', () => {
+			dateField.classList.remove('error')
+		})
+	}
 	createTask();
+	
 	let modal = document.getElementById("myModal");
 	modal.style.display = "none";
 });
