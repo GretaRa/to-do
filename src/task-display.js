@@ -2,6 +2,10 @@
 //add posibility to mark project complete
 //add possibility to edit the task
 //add project tag (later)
+//sort by date, priority,alphabet
+//sort by dates in seperate htmls
+//show project page
+//delete projects
 
 import { formatDistanceToNow } from "date-fns";
 

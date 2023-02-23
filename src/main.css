@@ -135,6 +135,13 @@ nav {
 	align-items: center;
 }
 
+.project span p{
+	max-width: 15ch;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 nav li,
 header p {
 	margin-bottom: var(--sm-padding);
