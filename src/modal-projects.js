@@ -1,4 +1,5 @@
 let projectColor;
+let projects = [];
 const createProjectBtn = document.getElementById("create-project-btn");
 
 //Create project color selector
@@ -63,40 +64,59 @@ function rgbToHex(r, g, b) {
 	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-//Create project DOM
+//Create project object
 const projectFactory = (titleProject, colorProject) => {
-	const projectList = document.querySelector(".project-list");
+	//Display project DOM
+	const createProjectDOM = () => {
+		const projectList = document.querySelector(".project-list");
 
-	const projectWrapper = document.createElement("div");
-	projectWrapper.classList.add("project");
+		const projectWrapper = document.createElement("div");
+		projectWrapper.classList.add("project");
 
-	const titleSpan = document.createElement("span");
+		const titleSpan = document.createElement("span");
 
-	const title = document.createElement("p");
-	title.textContent = titleProject;
+		const title = document.createElement("p");
+		title.textContent = titleProject;
 
-	const color = document.createElement("span");
-	color.classList.add("project-color");
-	color.style.backgroundColor = colorProject;
+		const color = document.createElement("span");
+		color.classList.add("project-color");
+		color.style.backgroundColor = colorProject;
 
-	projectList.appendChild(projectWrapper);
-	projectWrapper.appendChild(color);
-	projectWrapper.appendChild(titleSpan);
-	titleSpan.appendChild(title);
+		projectList.appendChild(projectWrapper);
+		projectWrapper.appendChild(color);
+		projectWrapper.appendChild(titleSpan);
+		titleSpan.appendChild(title);
+	};
 
 	return {
-		title,
-		color,
+		createProjectDOM,
+		titleProject,
+		colorProject,
 	};
 };
+
+//Push all created projects to array
+function addProject(project) {
+	projects.push(project);
+}
+
+//Populates DOM with objects from projects array
+function displayProjects() {
+	const projectList = document.querySelector(".project-list");
+	projectList.innerHTML = "";
+	for (let i = 0; i < projects.length; i++) {
+		projects[i].createProjectDOM();
+	}
+}
 
 // Takes input from project modal and uses the values to create project DOM
 function createProject() {
 	let title = document.getElementById("project-title").value;
 	let color = projectColor;
 
-	projectFactory(title, color);
+	addProject(projectFactory(title, color));
 	resetCreateProject();
+	displayProjects();
 }
 
 //Makes sure there is input in selected fields and runs createProject()
@@ -121,6 +141,6 @@ function resetCreateProject() {
 }
 
 // Create sample project to be shown when first visiting the website
-const proje = projectFactory("Sample project", "coral");
+projectFactory("Sample project", "coral").createProjectDOM();
 
 export { resetCreateProject }

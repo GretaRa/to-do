@@ -46,15 +46,15 @@ const taskFactory = (title, description, date, color) => {
 		taskDiv.appendChild(taskDescription);
 		taskDiv.appendChild(taskDueDate);
 		taskDiv.appendChild(taskRemove);
-	}
+	};
 
 	return {
 		createTaskDOM,
 		title,
 		description,
 		date,
-		color
-	}
+		color,
+	};
 };
 
 //Get border color by checking which priority was selected
@@ -98,7 +98,6 @@ function createTask() {
 	addTask(taskFactory(title, description, date, color));
 	resetCreateTask();
 	displayTasks();
-	return;
 }
 
 //Makes sure there is input in selected fields and runs createTask()
@@ -130,14 +129,14 @@ function resetCreateTask() {
 	document.getElementById("create-date").value = "";
 	document.querySelector('input[name="radioPriority"]:checked').checked = false;
 	document.getElementById("lowPrio").checked = true;
-};
+}
 
 // Create sample task to be shown when first visiting the website
-const sampleTask = taskFactory(
+taskFactory(
 	"Sample task",
 	"Don't forget to describe it!",
 	"Today",
 	"var(--low-prio-color)"
-);
+).createTaskDOM();
 
-export {resetCreateTask}
+export { resetCreateTask };
