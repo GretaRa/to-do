@@ -122,3 +122,5 @@ function resetCreateProject() {
 
 // Create sample project to be shown when first visiting the website
 const proje = projectFactory("Sample project", "coral");
+
+export { resetCreateProject }

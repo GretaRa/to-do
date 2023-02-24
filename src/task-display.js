@@ -12,45 +12,49 @@ import { formatDistanceToNow } from "date-fns";
 let tasks = [];
 const createTaskBtn = document.getElementById("create-task-btn");
 
-//Create task DOM
+//Create task object
 const taskFactory = (title, description, date, color) => {
-	const taskCompletion = document.createElement("button");
-	taskCompletion.classList.add("task-completion");
+	//Display task DOM
+	const createTaskDOM = () => {
+		const taskCompletion = document.createElement("button");
+		taskCompletion.classList.add("task-completion");
 
-	const taskTitle = document.createElement("h3");
-	taskTitle.classList.add("task-title");
-	taskTitle.textContent = title;
+		const taskTitle = document.createElement("h3");
+		taskTitle.classList.add("task-title");
+		taskTitle.textContent = title;
 
-	const taskDescription = document.createElement("p");
-	taskDescription.classList.add("task-desc");
-	taskDescription.textContent = description;
+		const taskDescription = document.createElement("p");
+		taskDescription.classList.add("task-desc");
+		taskDescription.textContent = description;
 
-	const taskDueDate = document.createElement("p");
-	taskDueDate.classList.add("task-date");
-	taskDueDate.textContent = date;
+		const taskDueDate = document.createElement("p");
+		taskDueDate.classList.add("task-date");
+		taskDueDate.textContent = date;
 
-	const taskRemove = document.createElement("button");
-	taskRemove.classList.add("task-remove");
+		const taskRemove = document.createElement("button");
+		taskRemove.classList.add("task-remove");
 
-	const container = document.querySelector(".container");
-	const taskDiv = document.createElement("div");
-	taskDiv.classList.add("task");
-	taskDiv.style.borderLeftColor = color;
+		const taskDiv = document.createElement("div");
+		taskDiv.classList.add("task");
+		taskDiv.style.borderLeftColor = color;
 
-	container.appendChild(taskDiv);
-	taskDiv.appendChild(taskCompletion);
-	taskDiv.appendChild(taskTitle);
-	taskDiv.appendChild(taskDescription);
-	taskDiv.appendChild(taskDueDate);
-	taskDiv.appendChild(taskRemove);
+		const container = document.querySelector(".container");
+
+		container.appendChild(taskDiv);
+		taskDiv.appendChild(taskCompletion);
+		taskDiv.appendChild(taskTitle);
+		taskDiv.appendChild(taskDescription);
+		taskDiv.appendChild(taskDueDate);
+		taskDiv.appendChild(taskRemove);
+	}
 
 	return {
-		taskDiv,
+		createTaskDOM,
 		title,
 		description,
 		date,
-		color,
-	};
+		color
+	}
 };
 
 //Get border color by checking which priority was selected
@@ -67,6 +71,20 @@ function getColor() {
 	}
 }
 
+//Push all created tasks to array for sorting
+function addTask(task) {
+	tasks.push(task);
+}
+
+//Populates DOM with objects from tasks array
+function displayTasks() {
+	const container = document.querySelector(".container");
+	container.innerHTML = "";
+	for (let i = 0; i < tasks.length; i++) {
+		tasks[i].createTaskDOM();
+	}
+}
+
 // Takes input from task modal and uses the values to create task DOM
 function createTask() {
 	let title = document.getElementById("task-title").value;
@@ -79,13 +97,8 @@ function createTask() {
 
 	addTask(taskFactory(title, description, date, color));
 	resetCreateTask();
-
+	displayTasks();
 	return;
-}
-
-//Push all created tasks to array for sorting
-function addTask(task) {
-	tasks.push(task);
 }
 
 //Makes sure there is input in selected fields and runs createTask()
@@ -117,7 +130,7 @@ function resetCreateTask() {
 	document.getElementById("create-date").value = "";
 	document.querySelector('input[name="radioPriority"]:checked').checked = false;
 	document.getElementById("lowPrio").checked = true;
-}
+};
 
 // Create sample task to be shown when first visiting the website
 const sampleTask = taskFactory(
@@ -126,3 +139,5 @@ const sampleTask = taskFactory(
 	"Today",
 	"var(--low-prio-color)"
 );
+
+export {resetCreateTask}

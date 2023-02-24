@@ -1,6 +1,7 @@
 import "./main.css";
-import "./task-display";
-import "./modal-projects.js";
+
+import { resetCreateTask } from "./task-display.js";
+import { resetCreateProject } from "./modal-projects.js";
 
 //Modal functionality
 
@@ -70,7 +71,5 @@ activateTab(tabLinks[0]);
 document.querySelectorAll("form").forEach((element) => {
 	element.addEventListener("submit", (event) => {
 		event.preventDefault();
-		// actual logic, e.g. validate the form
-		console.log("Form submission cancelled.");
 	});
 });
