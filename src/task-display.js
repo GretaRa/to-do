@@ -1,4 +1,3 @@
-//add remove button func
 //add posibility to mark project complete
 //add possibility to edit the task
 //add project tag (later)
@@ -15,7 +14,7 @@ const createTaskBtn = document.getElementById("create-task-btn");
 //Create task object
 const taskFactory = (title, description, date, color) => {
 	//Display task DOM
-	const createTaskDOM = () => {
+	const createTaskDOM = (index) => {
 		const taskCompletion = document.createElement("button");
 		taskCompletion.classList.add("task-completion");
 
@@ -46,6 +45,12 @@ const taskFactory = (title, description, date, color) => {
 		taskDiv.appendChild(taskDescription);
 		taskDiv.appendChild(taskDueDate);
 		taskDiv.appendChild(taskRemove);
+
+		taskRemove.onclick = function removeTask() {
+			tasks.splice(index, 1);
+			taskDiv.remove();
+			console.table(tasks);
+		};
 	};
 
 	return {
@@ -81,7 +86,7 @@ function displayTasks() {
 	const container = document.querySelector(".container");
 	container.innerHTML = "";
 	for (let i = 0; i < tasks.length; i++) {
-		tasks[i].createTaskDOM();
+		tasks[i].createTaskDOM(i);
 	}
 }
 
